@@ -23,3 +23,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav {
+  list-style-type: none;
+}
