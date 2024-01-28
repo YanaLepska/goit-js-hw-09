@@ -70,33 +70,15 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
+const galleryItem = images.map(image =>
+  `<li class="gallery-item">
+   <a class="gallery-link" href="${image.original}">
+   <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
+  </a> </li>`)
+  .join('');
 
-function galleryItem(item) {
-    return `<li class="gallery-item">
-  <a class="gallery-link" href="${item.original}">
-    <img class="gallery-image" src="${item.preview}" alt="${item.description}" />
-  </a>
-</li>`;
-}
+  gallery.innerHTML = galleryItem;
 
-function galleryListItem(images) {
-    const markup = images.map(galleryItem).join('');
-    return markup;
-}
-
-function galleryComplain() {
-  const markup = galleryListItem(images);
-  gallery.innerHTML = markup;
-  
-const linkOfGallery = document.querySelectorAll('.gallery-link');
-linkOfGallery.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-  });
-});
-
-}
-galleryComplain();
 
 const lightbox = new SimpleLightbox('.gallery a', { 
     captionsData:'alt',
